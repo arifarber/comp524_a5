@@ -1,0 +1,17 @@
+#lang racket
+;; if multiple statements just return the last one
+;; TODO: +,-,*,/,string-append,string<?,string=?,not,=,<
+;;program     : exprList
+;;exprList    : expr optExprList
+;;optExprList : ɛ | exprList
+;;expr        : atom | invocation
+;;atom        : NAME | STRING | number
+;;number      : INT | FLOAT
+;;invocation  : OPAREN exprList CPAREN
+(require (only-in (file "a3.rkt")
+                  parse))
+(define (eval code)
+  (eval-program (parse code) (new-environment)))
+
+(define (eval-program program-expr env)
+  (eval-exprList (second program-expr) env))
