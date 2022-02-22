@@ -12,7 +12,7 @@
                   parse))
 
 (define (eval code)
-  (eval-program (parse code)))
+  (first(eval-program (parse code))))
 
 ;;program     : exprList
 (define (eval-program program-expr )
