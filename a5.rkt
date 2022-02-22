@@ -48,7 +48,7 @@
          [token-data (second token)]
          [eval-fn (case token-type
                     [(NAME) (hash-ref name-map token-data)] ;;no need for (>)?
-                    [(STRING) (token-data)]
+                    [(STRING) token-data]
                     [(number) (eval-number token )])])    ;;not sure this works
     eval-fn))
 
